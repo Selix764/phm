@@ -112,19 +112,19 @@ export function ClientsGrid() {
         {clients.map((client, index) => (
           <motion.div
             key={index}
-            className="bg-[#1A1A1A] rounded-xl p-8 flex items-center justify-center h-[180px] border border-white/5 hover:border-[#FF0000]/30 transition-colors"
+            className="bg-[#1A1A1A] rounded-xl p-4 flex items-center justify-center h-[180px] border border-white/5 hover:border-[#FF0000]/30 transition-colors"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-[90%] h-[90%]">
               <Image
                 src={client.logo || "/placeholder.svg"}
                 alt={client.name}
                 fill
-                className="object-contain p-2"
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
