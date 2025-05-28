@@ -93,7 +93,7 @@ export async function GET(req: Request) {
     }
 
     // Fetch fresh data from YouTube API
-    const apiKey = getYouTubeApiKey()
+    const apiKey = "AIzaSyBBZwxS6oZtryQ5g02R-EVQXSIikC7oo-U"
 
     // 1. Get channel's uploads playlist ID
     const channelUrl = buildYouTubeUrl("channels", {
