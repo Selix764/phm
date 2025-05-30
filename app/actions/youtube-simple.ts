@@ -1,5 +1,7 @@
 "use server"
 
+import { getViewCount } from "@/lib/youtube-data"
+
 export interface YouTubeVideo {
   id: string
   title: string
@@ -9,16 +11,8 @@ export interface YouTubeVideo {
   viewCount: string
 }
 
-// Fallback videos if API fails
+// Fallback videos if API fails - filtered to only show ones with 5+ views
 const FALLBACK_VIDEOS: YouTubeVideo[] = [
-  {
-    id: "YL9TbJF2x8k",
-    title: "Somnul copiilor",
-    description: "Somnul copiilor. De vorba cu Iulia! 20.05.2025",
-    publishedAt: "20 mai 2025",
-    thumbnail: "https://img.youtube.com/vi/YL9TbJF2x8k/mqdefault.jpg",
-    viewCount: "18 vizualizări",
-  },
   {
     id: "Jv3MdHwLh9E",
     title: "Creme care șterg ridurile",
@@ -34,6 +28,14 @@ const FALLBACK_VIDEOS: YouTubeVideo[] = [
     publishedAt: "18 mai 2025",
     thumbnail: "https://img.youtube.com/vi/FRvJp9JEXcw/mqdefault.jpg",
     viewCount: "28 vizualizări",
+  },
+  {
+    id: "dm1TxidYb2Q",
+    title: "Tehnologie și inovație",
+    description: "Ultimele tendințe în tehnologie și cum ne afectează viața",
+    publishedAt: "15 mai 2023",
+    thumbnail: "https://img.youtube.com/vi/dm1TxidYb2Q/mqdefault.jpg",
+    viewCount: "82 vizualizări",
   },
 ]
 
@@ -73,81 +75,75 @@ export async function fetchYouTubeVideos(channelId = "UCVcQFFnRV6gaOyM8l7YmjMw",
   console.log(`[SERVER] Fetching videos for channel ${channelId}...`)
 
   try {
-    // Get API key from environment variables
     const apiKey = process.env.YOUTUBE_API_KEY
 
     if (!apiKey) {
       console.error("[SERVER] YouTube API key is missing")
-      return { videos: FALLBACK_VIDEOS, error: "YouTube API key is missing" }
+      return { videos: FALLBACK_VIDEOS.filter(v => getViewCount(v.viewCount) >= 5), error: "YouTube API key is missing" }
     }
 
-    // 1. Get the channel's uploads playlist ID
     const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${apiKey}`
     const channelResponse = await fetch(channelUrl, { cache: "no-store" })
 
-    if (!channelResponse.ok) {
-      throw new Error(`Channel API error: ${channelResponse.status}`)
-    }
+    if (!channelResponse.ok) throw new Error(`Channel API error: ${channelResponse.status}`)
 
     const channelData = await channelResponse.json()
+    const uploadsPlaylistId = channelData.items[0]?.contentDetails?.relatedPlaylists?.uploads
+    if (!uploadsPlaylistId) throw new Error("Upload playlist not found")
 
-    if (!channelData.items || channelData.items.length === 0) {
-      throw new Error("Channel not found")
-    }
+    let nextPageToken = ""
+    const validVideos: YouTubeVideo[] = []
 
-    const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads
+    while (validVideos.length < maxResults) {
+      const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsPlaylistId}&key=${apiKey}&pageToken=${nextPageToken}`
+      const playlistResponse = await fetch(playlistUrl, { cache: "no-store" })
+      if (!playlistResponse.ok) throw new Error(`Playlist API error: ${playlistResponse.status}`)
 
-    // 2. Get videos from the uploads playlist
-    const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${uploadsPlaylistId}&key=${apiKey}`
-    const playlistResponse = await fetch(playlistUrl, { cache: "no-store" })
+      const playlistData = await playlistResponse.json()
+      const videoItems = playlistData.items || []
+      if (videoItems.length === 0) break
 
-    if (!playlistResponse.ok) {
-      throw new Error(`Playlist API error: ${playlistResponse.status}`)
-    }
-
-    const playlistData = await playlistResponse.json()
-
-    if (!playlistData.items || playlistData.items.length === 0) {
-      throw new Error("No videos found")
-    }
-
-    // 3. Get video statistics
-    const videoIds = playlistData.items.map((item: any) => item.snippet.resourceId.videoId).join(",")
-    const videosUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${apiKey}`
-    const videosResponse = await fetch(videosUrl, { cache: "no-store" })
-
-    let videoStats: Record<string, any> = {}
-
-    if (videosResponse.ok) {
+      const videoIds = videoItems.map((item: any) => item.snippet.resourceId.videoId).join(",")
+      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${apiKey}`
+      const videosResponse = await fetch(videosUrl, { cache: "no-store" })
       const videosData = await videosResponse.json()
 
-      // Create a map of video ID to statistics
-      videoStats = (videosData.items || []).reduce((acc: Record<string, any>, item: any) => {
+      const statsMap = (videosData.items || []).reduce((acc: Record<string, any>, item: any) => {
         acc[item.id] = item.statistics
         return acc
       }, {})
+
+      for (const item of videoItems) {
+        const videoId = item.snippet.resourceId.videoId
+        const stats = statsMap[videoId]
+        const viewCountNum = stats?.viewCount ? parseInt(stats.viewCount) : 0
+
+        if (viewCountNum >= 5) {
+          validVideos.push({
+            id: videoId,
+            title: item.snippet.title,
+            description: item.snippet.description || "",
+            publishedAt: formatDate(item.snippet.publishedAt),
+            thumbnail: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+            viewCount: formatViewCount(viewCountNum),
+          })
+        }
+
+        if (validVideos.length === maxResults) break
+      }
+
+      if (!playlistData.nextPageToken) break
+      nextPageToken = playlistData.nextPageToken
     }
 
-    // 4. Map the data to our format
-    const videos: YouTubeVideo[] = playlistData.items.map((item: any) => {
-      const videoId = item.snippet.resourceId.videoId
-      const stats = videoStats[videoId] || {}
-
-      return {
-        id: videoId,
-        title: item.snippet.title,
-        description: item.snippet.description || "",
-        publishedAt: formatDate(item.snippet.publishedAt),
-        thumbnail: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
-        viewCount: stats.viewCount ? formatViewCount(Number.parseInt(stats.viewCount)) : "N/A",
-      }
-    })
-
-    return { videos, error: null }
+    return {
+      videos: validVideos,
+      error: validVideos.length < maxResults ? "Not enough videos found with sufficient views" : null,
+    }
   } catch (error) {
     console.error("[SERVER] Error fetching YouTube videos:", error)
     return {
-      videos: FALLBACK_VIDEOS,
+      videos: FALLBACK_VIDEOS.filter(v => getViewCount(v.viewCount) >= 5),
       error: error instanceof Error ? error.message : String(error),
     }
   }
