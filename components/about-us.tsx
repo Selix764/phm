@@ -14,7 +14,12 @@ export function AboutUs() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        
+        <h2 className="font-bold text-[40px] text-white mb-4">Despre noi</h2>
+        <p className="text-[18px] text-white/70 max-w-[800px] mx-auto">
+          Perfect Home Media (PHM) este o agenție de publicitate full-service, specializată în producție publicitară,
+          organizare de evenimente și servicii media. Cu o experiență de peste 15 ani în industrie, am dezvoltat
+          campanii de succes pentru branduri naționale și internaționale.
+        </p>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -406,7 +411,7 @@ export function AboutUs() {
                 </svg>
               </div>
               <h4 className="text-white font-semibold text-lg mb-2">Rezultate măsurabile</h4>
-              <p className="text-white/70">Campanii orientate spre rezultate concrete și ROI demonstrabil</p>
+              <p className="text-white/70">Campanii orientate spre rezultate concrete</p>
             </div>
           </div>
         </motion.div>
