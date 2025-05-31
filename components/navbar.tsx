@@ -31,7 +31,7 @@ export function Navbar() {
       items: [
         { name: "Producție Publicitară", href: "/productie-publicitara" },
         { name: "Media", href: "/media" },
-        { name: "Events", href: "/events" },
+        { name: "Evenimente", href: "/evenimente" },
       ],
     },
     { name: "Proiecte", href: "/projects" },

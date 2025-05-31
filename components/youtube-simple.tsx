@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Play, Calendar, Eye, ExternalLink } from "lucide-react"
-import { getVideosByCategory, type VideoData } from "@/lib/youtube-data"
+import { getVideosByCategory, type VideoData, getViewCount } from "@/lib/youtube-data"
 
 interface YouTubeSimpleProps {
   title?: string
@@ -19,7 +19,11 @@ export function YouTubeSimple({
   category = "all",
   className = "",
 }: YouTubeSimpleProps) {
-  const [videos] = useState<VideoData[]>(() => getVideosByCategory(category, maxVideos))
+  // Get videos and filter out ones with less than 5 views
+  const [videos] = useState<VideoData[]>(() => {
+    const allVideos = getVideosByCategory(category, maxVideos * 2) // Get more videos to account for filtering
+    return allVideos.filter(video => getViewCount(video.viewCount) >= 5).slice(0, maxVideos)
+  })
 
   return (
     <section className={`w-full py-8 bg-black ${className}`}>

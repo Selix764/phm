@@ -7,7 +7,7 @@ export default function AboutPage() {
       <PageHero
         title="Despre"
         subtitle="noi"
-        description="Suntem o echipă de specialiști pasionați de tehnologie, dedicați creării de experiențe audio-video excepționale pentru casa ta."
+        description="Perfect Home Media (PHM) este o agenție de publicitate full-service, specializată în producție publicitară, organizare de evenimente și servicii media"
         heroImages={{
           topLeft: { src: "/images/vintage-camera.jpeg", alt: "Vintage camera" },
           bottomLeft: { src: "/images/cat.webp", alt: "Cat in black and white" },

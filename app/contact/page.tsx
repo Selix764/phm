@@ -7,7 +7,7 @@ export default function ContactPage() {
       <PageHero
         title="Contactează-"
         subtitle="ne"
-        description="Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să găsești soluția perfectă pentru casa ta."
+        description="Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să găsești soluția perfectă pentru video-urile tale."
         heroImages={{
           topLeft: { src: "/images/modern-interior.jpeg", alt: "Modern interior" },
           bottomLeft: { src: "/images/silhouette-stripes.png", alt: "Silhouette with stripes" },

@@ -76,8 +76,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-gray-400 hover:text-white transition-colors">
-                  Events
+                <Link
+                  href="/evenimente"
+                  className="text-white/70 hover:text-white transition-colors duration-200"
+                >
+                  Evenimente
                 </Link>
               </li>
               <li>
@@ -107,33 +110,18 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-6">Servicii</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Home Cinema
+                <Link href="/media" className="text-gray-400 hover:text-white transition-colors">
+                  Media
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Sisteme Audio Multi-Room
+                <Link href="/productie-publicitara" className="text-gray-400 hover:text-white transition-colors">
+                  Producție Publicitară
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Smart Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Integrare și Control
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Consultanță și Design
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Mentenanță și Suport
+                <Link href="/evenimente" className="text-gray-400 hover:text-white transition-colors">
+                  Evenimente
                 </Link>
               </li>
             </ul>

@@ -29,11 +29,11 @@ export function ServicesOverview() {
     },
     {
       icon: <Calendar className="w-6 h-6 text-white" />,
-      title: "Events",
+      title: "Evenimente",
       description:
         "Vă punem la dispoziție o gamă largă de evenimente cu standarde de înaltă tehnologie. Indiferent de evenimentul dvs., vă oferim consultanță pentru a executa orice mărime sau tip de eveniment. Creăm amintiri pentru",
       color: "#FF0000",
-      link: "/events",
+      link: "/evenimente",
       image:
         "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     },
