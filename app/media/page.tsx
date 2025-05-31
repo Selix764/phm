@@ -9,7 +9,7 @@ export default function MediaPage() {
       <PageHero
         title="Servicii"
         subtitle="Media"
-        description="Vă punem la dispoziție o platformă dedicată aplicării unor idei proaspete și ale unui stil de viață sănătos."
+        description="Compania propune dezvoltarea unui plan de comunicare pentru identificarea gradului de notorietate a brandului ori afacerii. PHM oferă soluţii de identificare a existenţei ca şi brand pe piaţă serviciilor şi canalelor media propuse:"
         heroImages={{
           topLeft: { src: "/images/microphone.jpeg", alt: "Microphone" },
           bottomLeft: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
