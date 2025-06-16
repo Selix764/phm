@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
+import { useLanguage } from "@/lib/language-context"
 
 export default function NotFound() {
-  const { t } = useTranslation()
+  const { t } = useLanguage()
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
