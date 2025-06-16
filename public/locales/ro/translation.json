@@ -1,0 +1,226 @@
+{
+  "notFound": {
+    "title": "Pagina nu a fost găsită",
+    "description": "Pagina pe care o căutați nu există sau a fost mutată.",
+    "backHome": "Înapoi la Pagina Principală"
+  },
+  "nav": {
+    "home": "Acasă",
+    "about": "Despre noi",
+    "services": "Servicii",
+    "projects": "Proiecte",
+    "clients": "Clienți",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Perfect Home Media",
+    "subtitle": "We brand your lifestyle",
+    "description": "Suntem mai mult decât o agenție de media. Suntem partenerul tău în construirea unui brand memorabil.",
+    "cta": {
+      "requestQuote": "Solicită o ofertă",
+      "viewProjects": "Vezi proiectele noastre"
+    },
+    "discoverMore": "Descoperă mai mult:",
+    "upcomingEvent": {
+      "title": "Spring Cocktail 2025",
+      "date": "15 Iunie 2025",
+      "location": "Le Dome, București"
+    },
+    "viewAllEvents": "Vezi toate evenimentele",
+    "stats": {
+      "completedProjects": "Proiecte finalizate",
+      "yearsExperience": "Ani de experiență",
+      "satisfiedClients": "Clienți mulțumiți",
+      "satisfactionRate": "Rată de satisfacție"
+    },
+    "images": {
+      "cat": "Pisică",
+      "streetShadows": "Umbre pe stradă",
+      "silhouette": "Siluetă",
+      "landscape": "Peisaj"
+    },
+    "backgroundImage": "Imagine de fundal erou {{number}}",
+    "defaultDescription": "Suntem mai mult decât o agenție de media. Suntem partenerul tău în construirea unui brand memorabil.",
+    "defaultCtaText": "Solicită o ofertă",
+    "defaultSecondaryCtaText": "Vezi proiectele noastre"
+  },
+  "about": {
+    "title": "Despre",
+    "subtitle": "noi",
+    "description": "Perfect Home Media (PHM) este o agenție de publicitate full-service, specializată în producție publicitară, organizare de evenimente și servicii media",
+    "images": {
+      "vintageCamera": "Vintage camera",
+      "cat": "Cat in black and white",
+      "microphone": "Microphone",
+      "streetShadows": "Street with shadows",
+      "landscapeDock": "Landscape with dock"
+    },
+    "services": {
+      "list": {
+        "list": [
+          "Producție Publicitară",
+          "Servicii Media",
+          "Organizare Evenimente",
+          "Producție Video",
+          "Fotografie",
+          "Marketing Digital"
+        ]
+      }
+    }
+  },
+  "services": {
+    "title": "Serviciile noastre",
+    "description": "Oferim soluții complete pentru a vă ajuta să vă promovați afacerea și să creați experiențe memorabile pentru clienții dumneavoastră.",
+    "advertising": {
+      "title": "Producție Publicitară",
+      "subtitle": "Publicitară",
+      "description": "Vă punem la dispoziție o mare varietate de materiale cu opțiuni de finisare și materiale promoționale pentru orice tip de afacere. Membrii echipei noastre sunt gata să vă ajute cu soluții de imprimare care vor crea materiale de marketing personalizate.",
+      "features": {
+        "digitalPrinting": {
+          "title": "Printare Digitală",
+          "description": "De mari dimensiuni: autocolante, bannere, backlit-uri, mesh-uri, steaguri, afise, panouri PVC."
+        },
+        "physicalPrints": {
+          "title": "Printuri Fizice",
+          "description": "Pentru sisteme de expunere: Roll-up, postere"
+        },
+        "printedMaterials": {
+          "title": "Materiale Tipărite",
+          "description": "Design și producție de broșuri, cataloage, afișe, flyere și alte materiale tipărite pentru campanii."
+        }
+      }
+    },
+    "media": {
+      "title": "Media",
+      "subtitle": "Media",
+      "description": "Vă punem la dispoziție o platformă dedicată aplicării unor idei proaspete și ale unui stil de viață sănătos. Noi propunem dezvoltarea unui plan de comunicare pentru identificarea gradului de notorietatea a brandului ori a afacerii.",
+      "features": {
+        "productDevelopment": {
+          "title": "Strategii pentru dezovltarea produsului",
+          "description": "Dezvoltăm strategii media de marketing bazându-ne pe canalele media și dezvolatarea de concepte creative."
+        },
+        "audiovisualProduction": {
+          "title": "Productie audio-vizual și multimedia",
+          "description": "Producem materiale video, audio cât și multimedia ale produsului vostru."
+        },
+        "showCreation": {
+          "title": "Creearea unei Emisiuni",
+          "description": "Credem că creearea unei Eminisiuni Online dedicate unei audiențe specifice. targetate poate aduce beneficii"
+        }
+      }
+    },
+    "events": {
+      "title": "Evenimente",
+      "subtitle": "Evenimente",
+      "description": "Vă punem la dispoziție o gamă largă de evenimente cu standarde de înaltă tehnologie. Indiferent de evenimentul dvs., vă oferim consultanță pentru a executa orice mărime sau tip de eveniment.",
+      "features": {
+        "socialEvents": {
+          "title": "Evenimente Sociale și Caritabile",
+          "description": "Oferim servicii profesionale de captare video pentru evenimente caritabile, gale și inițiative sociale, la calitate cinematografică, evidențiind emoția și mesajul momentului."
+        },
+        "corporateEvents": {
+          "title": "Evenimente Corporative",
+          "description": "Realizăm materiale video de înaltă rezoluție pentru conferințe, lansări de produse și întâlniri de afaceri, ideale pentru promovare internă sau externă."
+        },
+        "thematicEvents": {
+          "title": "Evenimente Tematice",
+          "description": "Surprindem atmosfera unică a petrecerilor tematice, aniversărilor și festivalurilor cu imagini dinamice și montaj creativ, perfecte pentru promovarea online."
+        }
+      }
+    },
+    "requestQuote": "Solicită o ofertă",
+    "viewProjects": "Vezi proiectele noastre",
+    "whatWeOffer": "Ce Oferim",
+    "discoverServices": "Descoperă serviciile noastre de {service}",
+    "readyToStart": "Ești gata să îți începi proiectul?",
+    "contactUs": "Contactează-ne astăzi pentru o consultație gratuită și lasă-ne să îți aducem ideile la viață."
+  },
+  "contact": {
+    "title": "Contactează-",
+    "subtitle": "ne",
+    "description": "Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să găsești soluția perfectă pentru video-urile tale.",
+    "form": {
+      "title": "Trimite-ne un mesaj",
+      "name": "Nume",
+      "email": "Email",
+      "phone": "Telefon",
+      "subject": "Subiect",
+      "message": "Mesaj",
+      "submit": "Trimite mesajul",
+      "namePlaceholder": "Introduceți numele",
+      "emailPlaceholder": "Introduceți email-ul",
+      "phonePlaceholder": "Introduceți numărul de telefon",
+      "subjectPlaceholder": "Introduceți subiectul",
+      "messagePlaceholder": "Introduceți mesajul"
+    },
+    "info": {
+      "title": "Informații de contact",
+      "address": {
+        "title": "Adresa noastră",
+        "value": "Strada Băbeşti nr 1, Sector 6, Bucureşti, România"
+      },
+      "email": {
+        "title": "Email",
+        "value1": "office@perfecthomemedia.ro",
+        "value2": "perfecthomemedia@yahoo.com"
+      },
+      "phone": {
+        "title": "Telefon",
+        "value": "(+40) 737 628 400"
+      }
+    },
+    "social": {
+      "title": "Urmărește-ne"
+    },
+    "images": {
+      "silhouetteStripes": "Siluete cu dungi",
+      "modernInterior": "Interior modern",
+      "streetShadows": "Strada cu umbre",
+      "microphone": "Microfon"
+    },
+    "map": {
+      "title": "Vizitează-ne la Strada Băbeşti nr 1, Sector 6, Bucureşti"
+    }
+  },
+  "footer": {
+    "description": "Suntem o platformă şi un canal de comunicare cu experienţă în producţia de media şi lifestyle, ce oferă soluţii creative pentru susţinerea succesului oricărei afaceri din orice domeniu.",
+    "quickLinks": {
+      "title": "Link-uri rapide",
+      "home": "Acasă",
+      "about": "Despre noi",
+      "advertising": "Producție Publicitară",
+      "media": "Media",
+      "events": "Evenimente",
+      "projects": "Proiecte",
+      "clients": "Clienți",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Servicii",
+      "media": "Media",
+      "advertising": "Producție Publicitară",
+      "events": "Evenimente"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Abonează-te la newsletter-ul nostru pentru a primi noutăți despre ultimele tehnologii și proiecte.",
+      "subscribe": "Abonare"
+    },
+    "copyright": "© 2025 Perfect Home Media. Toate drepturile rezervate.",
+    "legal": {
+      "privacy": "Politica de confidențialitate",
+      "terms": "Termeni și condiții",
+      "cookies": "Politica de cookies"
+    }
+  },
+  "clients": {
+    "title": "Clienții noștri",
+    "description": "Am avut plăcerea de a lucra cu o varietate de clienți din diverse industrii. Iată câțiva dintre partenerii noștri de încredere.",
+    "logoAlt": "Logo {{name}}",
+    "becomeClient": {
+      "title": "Devino clientul nostru",
+      "description": "Alătură-te listei noastre în creștere de clienți mulțumiți și experimentează diferența de a lucra cu o agenție media profesională.",
+      "cta": "Contactează-ne"
+    }
+  }
+} 

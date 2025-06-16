@@ -1,0 +1,226 @@
+{
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "services": "Services",
+    "projects": "Projects",
+    "clients": "Clients",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Perfect Home Media",
+    "subtitle": "We brand your lifestyle",
+    "description": "We are more than a media agency. We are your partner in building a memorable brand.",
+    "cta": {
+      "requestQuote": "Request a Quote",
+      "viewProjects": "View Our Projects"
+    },
+    "discoverMore": "Discover more:",
+    "upcomingEvent": {
+      "title": "Spring Cocktail 2025",
+      "date": "June 15, 2025",
+      "location": "Le Dome, Bucharest"
+    },
+    "viewAllEvents": "View all events",
+    "stats": {
+      "completedProjects": "Completed Projects",
+      "yearsExperience": "Years of experience",
+      "satisfiedClients": "Satisfied Clients",
+      "satisfactionRate": "Satisfaction Rate"
+    },
+    "images": {
+      "cat": "Cat",
+      "streetShadows": "Street shadows",
+      "silhouette": "Silhouette",
+      "landscape": "Landscape"
+    },
+    "backgroundImage": "Hero background image {{number}}",
+    "defaultDescription": "We are more than a media agency. We are your partner in building a memorable brand.",
+    "defaultCtaText": "Request a Quote",
+    "defaultSecondaryCtaText": "View Our Projects"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "us",
+    "description": "Perfect Home Media (PHM) is a full-service advertising agency, specializing in advertising production, event organization, and media services",
+    "images": {
+      "vintageCamera": "Vintage camera",
+      "cat": "Cat in black and white",
+      "microphone": "Microphone",
+      "streetShadows": "Street with shadows",
+      "landscapeDock": "Landscape with dock"
+    },
+    "services": {
+      "list": {
+        "list": [
+          "Advertising Production",
+          "Media Services",
+          "Event Organization",
+          "Video Production",
+          "Photography",
+          "Digital Marketing"
+        ]
+      }
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "We offer complete solutions to help you promote your business and create memorable experiences for your clients.",
+    "advertising": {
+      "title": "Advertising Production",
+      "subtitle": "Production",
+      "description": "We provide you with a wide variety of materials with finishing options and promotional materials for any type of business. Our team members are ready to help you with printing solutions that will create customized marketing materials.",
+      "features": {
+        "digitalPrinting": {
+          "title": "Digital Printing",
+          "description": "Large format: stickers, banners, backlit, mesh, flags, posters, PVC panels."
+        },
+        "physicalPrints": {
+          "title": "Physical Prints",
+          "description": "For display systems: Roll-up, posters"
+        },
+        "printedMaterials": {
+          "title": "Printed Materials",
+          "description": "Design and production of brochures, catalogs, posters, flyers, and other printed materials for campaigns."
+        }
+      }
+    },
+    "media": {
+      "title": "Media",
+      "subtitle": "Services",
+      "description": "We provide you with a dedicated platform for implementing fresh ideas and a healthy lifestyle. We propose the development of a communication plan for identifying the level of brand or business awareness.",
+      "features": {
+        "productDevelopment": {
+          "title": "Product Development Strategies",
+          "description": "We develop media marketing strategies based on media channels and creative concept development."
+        },
+        "audiovisualProduction": {
+          "title": "Audiovisual and Multimedia Production",
+          "description": "We produce video, audio, and multimedia materials for your product."
+        },
+        "showCreation": {
+          "title": "Show Creation",
+          "description": "We believe that creating an Online Show dedicated to a specific, targeted audience can bring benefits"
+        }
+      }
+    },
+    "events": {
+      "title": "Events",
+      "subtitle": "Organization",
+      "description": "We provide you with a wide range of events with high-tech standards. Regardless of your event, we offer consulting to execute any size or type of event.",
+      "features": {
+        "socialEvents": {
+          "title": "Social and Charitable Events",
+          "description": "We offer professional video capture services for charitable events, galas, and social initiatives, at cinematic quality, highlighting the emotion and message of the moment."
+        },
+        "corporateEvents": {
+          "title": "Corporate Events",
+          "description": "We create high-resolution video materials for conferences, product launches, and business meetings, ideal for internal or external promotion."
+        },
+        "thematicEvents": {
+          "title": "Thematic Events",
+          "description": "We capture the unique atmosphere of themed parties, anniversaries, and festivals with dynamic images and creative editing, perfect for online promotion."
+        }
+      }
+    },
+    "requestQuote": "Request a Quote",
+    "viewProjects": "View Our Projects",
+    "whatWeOffer": "What We Offer",
+    "discoverServices": "Discover our {service} services",
+    "readyToStart": "Ready to start your project?",
+    "contactUs": "Contact us today for a free consultation and let's bring your ideas to life."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "us",
+    "description": "We are here to answer your questions and help you find the perfect solution for your videos.",
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "subjectPlaceholder": "Enter the subject",
+      "messagePlaceholder": "Enter your message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Our Address",
+        "value": "Strada Băbeşti nr 1, Sector 6, Bucharest, Romania"
+      },
+      "email": {
+        "title": "Email",
+        "value1": "office@perfecthomemedia.ro",
+        "value2": "perfecthomemedia@yahoo.com"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "(+40) 737 628 400"
+      }
+    },
+    "social": {
+      "title": "Follow Us"
+    },
+    "images": {
+      "silhouetteStripes": "Silhouette stripes",
+      "modernInterior": "Modern interior",
+      "streetShadows": "Street with shadows",
+      "microphone": "Microphone"
+    },
+    "map": {
+      "title": "Visit us at Strada Băbeşti nr 1, Sector 6, Bucharest"
+    }
+  },
+  "footer": {
+    "description": "We are a platform and communication channel with experience in media and lifestyle production, offering creative solutions to support the success of any business in any field.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About us",
+      "advertising": "Advertising Production",
+      "media": "Media",
+      "events": "Events",
+      "projects": "Projects",
+      "clients": "Clients",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Services",
+      "media": "Media",
+      "advertising": "Advertising Production",
+      "events": "Events"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to our newsletter to receive updates about the latest technologies and projects.",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "© 2025 Perfect Home Media. All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms and Conditions",
+      "cookies": "Cookie Policy"
+    }
+  },
+  "clients": {
+    "title": "Our Clients",
+    "description": "We have had the pleasure of working with a variety of clients from different industries. Here are some of our trusted partners.",
+    "logoAlt": "{{name}} logo",
+    "becomeClient": {
+      "title": "Become Our Client",
+      "description": "Join our growing list of satisfied clients and experience the difference of working with a professional media agency.",
+      "cta": "Contact Us"
+    }
+  }
+} 

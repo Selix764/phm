@@ -107,10 +107,12 @@ export async function fetchWithRetry(
 
 // Get API key with validation
 export function getAPIKey(): string | null {
-  const apiKey = process.env.YOUTUBE_API_KEY
+  // Try environment variable first, then fallback to hardcoded key
+  const envApiKey = process.env.YOUTUBE_API_KEY
+  const apiKey = envApiKey || "AIzaSyBBZwxS6oZtryQ5g02R-EVQXSIikC7oo-U"
 
   if (!apiKey) {
-    console.warn("[YouTube API] No API key found in environment variables")
+    console.warn("[YouTube API] No API key found")
     return null
   }
 
@@ -119,6 +121,7 @@ export function getAPIKey(): string | null {
     return null
   }
 
+  console.log("[YouTube API] Using API key:", apiKey.substring(0, 10) + "...")
   return apiKey
 }
 

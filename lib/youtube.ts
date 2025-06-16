@@ -45,7 +45,7 @@ export type YouTubeResponse = z.infer<typeof YouTubeResponseSchema>
 
 // Utility Functions
 export function getYouTubeApiKey(): string {
-  const apiKey = process.env.YOUTUBE_API_KEY
+  const apiKey = "AIzaSyBBZwxS6oZtryQ5g02R-EVQXSIikC7oo-U"
   if (!apiKey) {
     throw new Error("YouTube API key is not configured")
   }
