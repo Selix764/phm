@@ -339,6 +339,11 @@ interface Translations {
       cta: string
     }
   }
+  notFound: {
+    title: string
+    description: string
+    backHome: string
+  }
   legal: {
     title: string
     subtitle: string
@@ -890,6 +895,11 @@ export const translations = {
         cta: "Contact Us"
       }
     },
+    notFound: {
+      title: "Page Not Found",
+      description: "Sorry, the page you are looking for does not exist.",
+      backHome: "Back Home",
+    },
     legal: {
       title: "Legal",
       subtitle: "Information",
@@ -1437,6 +1447,11 @@ export const translations = {
         cta: "Contactează-ne"
       }
     },
+  notFound: {
+    title: "Pagina nu a fost găsită",
+    description: "Ne pare rău, pagina pe care o căutați nu există.",
+    backHome: "Înapoi acasă",
+  },
     legal: {
       title: "Informatii",
       subtitle: "Legale", 
