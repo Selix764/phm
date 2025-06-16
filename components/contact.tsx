@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export function Contact() {
+  const { t } = useLanguage()
+  
   return (
     <section id="contact" className="py-[100px] px-5 md:px-[120px] max-w-[1400px] mx-auto bg-black">
       <motion.div
@@ -13,9 +16,9 @@ export function Contact() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h2 className="font-bold text-[40px] text-white mb-4">Contactează-ne</h2>
+        <h2 className="font-bold text-[40px] text-white mb-4">{t("contact.title")}</h2>
         <p className="text-[18px] text-white/70 max-w-[600px] mx-auto">
-          Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să găsești soluția perfectă pentru video-urile tale.
+          {t("contact.description")}
         </p>
       </motion.div>
 
@@ -26,63 +29,63 @@ export function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="text-2xl font-bold text-white mb-6">Trimite-ne un mesaj</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t("contact.form.title")}</h3>
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-white/70 mb-2">
-                  Nume
+                  {t("contact.form.name")}
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 bg-[#1A1A1A] text-white rounded-lg border border-white/10 focus:outline-none focus:border-[#FF0000]"
-                  placeholder="Numele tău"
+                  placeholder={t("contact.form.namePlaceholder")}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-white/70 mb-2">
-                  Email
+                  {t("contact.form.email")}
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 bg-[#1A1A1A] text-white rounded-lg border border-white/10 focus:outline-none focus:border-[#FF0000]"
-                  placeholder="Email-ul tău"
+                  placeholder={t("contact.form.emailPlaceholder")}
                 />
               </div>
             </div>
             <div>
               <label htmlFor="phone" className="block text-white/70 mb-2">
-                Telefon
+                {t("contact.form.phone")}
               </label>
               <input
                 type="tel"
                 id="phone"
                 className="w-full px-4 py-3 bg-[#1A1A1A] text-white rounded-lg border border-white/10 focus:outline-none focus:border-[#FF0000]"
-                placeholder="Numărul tău de telefon"
+                placeholder={t("contact.form.phonePlaceholder")}
               />
             </div>
             <div>
               <label htmlFor="subject" className="block text-white/70 mb-2">
-                Subiect
+                {t("contact.form.subject")}
               </label>
               <input
                 type="text"
                 id="subject"
                 className="w-full px-4 py-3 bg-[#1A1A1A] text-white rounded-lg border border-white/10 focus:outline-none focus:border-[#FF0000]"
-                placeholder="Subiectul mesajului"
+                placeholder={t("contact.form.subjectPlaceholder")}
               />
             </div>
             <div>
               <label htmlFor="message" className="block text-white/70 mb-2">
-                Mesaj
+                {t("contact.form.message")}
               </label>
               <textarea
                 id="message"
                 rows={5}
                 className="w-full px-4 py-3 bg-[#1A1A1A] text-white rounded-lg border border-white/10 focus:outline-none focus:border-[#FF0000]"
-                placeholder="Mesajul tău"
+                placeholder={t("contact.form.messagePlaceholder")}
               ></textarea>
             </div>
             <motion.button
@@ -91,7 +94,7 @@ export function Contact() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Trimite mesajul
+              {t("contact.form.submit")}
             </motion.button>
           </form>
         </motion.div>
@@ -102,16 +105,16 @@ export function Contact() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="text-2xl font-bold text-white mb-6">Informații de contact</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t("contact.info.title")}</h3>
           <div className="space-y-8">
             <div className="flex items-start gap-4">
               <div className="bg-[#FF0000] p-3 rounded-full">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-white">Adresa noastră</h4>
+                <h4 className="text-lg font-semibold text-white">{t("contact.info.address.title")}</h4>
                 <p className="text-white mt-1 bg-[#FF0000]/10 border-l-4 border-[#FF0000] pl-3 py-2 rounded-r-md font-medium">
-                  Strada Băbeşti nr 1, Sector 6, Bucureşti, România
+                  {t("contact.info.address.value")}
                 </p>
               </div>
             </div>
@@ -120,12 +123,12 @@ export function Contact() {
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-white">Email</h4>
+                <h4 className="text-lg font-semibold text-white">{t("contact.info.email.title")}</h4>
                 <p className="text-white mt-1 bg-[#FF0000]/10 border-l-4 border-[#FF0000] pl-3 py-2 rounded-r-md font-medium">
-                  office@perfecthomemedia.ro
+                  {t("contact.info.email.value1")}
                 </p>
                 <p className="text-white mt-2 bg-[#FF0000]/10 border-l-4 border-[#FF0000] pl-3 py-2 rounded-r-md font-medium">
-                  perfecthomemedia@yahoo.com
+                  {t("contact.info.email.value2")}
                 </p>
               </div>
             </div>
@@ -134,27 +137,16 @@ export function Contact() {
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-white">Telefon</h4>
+                <h4 className="text-lg font-semibold text-white">{t("contact.info.phone.title")}</h4>
                 <p className="text-white mt-1 bg-[#FF0000]/10 border-l-4 border-[#FF0000] pl-3 py-2 rounded-r-md font-medium">
-                  (+40) 737 628 400
+                  {t("contact.info.phone.value")}
                 </p>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              {/*<div className="bg-[#FF0000] p-3 rounded-full">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-white">Program</h4>
-                <p className="text-white/70 mt-1">Luni - Vineri: 09:00 - 18:00</p>
-                <p className="text-white/70">Sâmbătă: 10:00 - 14:00</p>
-                <p className="text-white/70">Duminică: Închis</p>
-              </div>*/}
             </div>
           </div>
 
           <div className="mt-10">
-            <h3 className="text-xl font-bold text-white mb-4">Urmărește-ne</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t("contact.social.title")}</h3>
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/search/top?q=perfect%20home%20media"
@@ -244,7 +236,7 @@ export function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <h3 className="text-2xl font-bold text-white mb-6 text-center">
-          Vizitează-ne la <span className="text-[#FF0000]">Strada Băbeşti nr 1, Sector 6, Bucureşti</span>
+          {t("contact.map.title")}
         </h3>
         <div className="w-full h-[400px] bg-[#1A1A1A] rounded-xl overflow-hidden">
           <iframe

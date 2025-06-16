@@ -1,43 +1,46 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { ServicePage } from "@/components/service-page"
 import { Tv, Target, Camera } from "lucide-react"
 import { YouTubeRobust } from "@/components/youtube-robust"
+import { useLanguage } from "@/lib/language-context"
 
 export default function MediaPage() {
+  const { t } = useLanguage()
+  
   return (
     <>
       <PageHero
-        title="Servicii"
-        subtitle="Media"
-        description="Compania propune dezvoltarea unui plan de comunicare pentru identificarea gradului de notorietate a brandului ori afacerii. PHM oferă soluţii de identificare a existenţei ca şi brand pe piaţă serviciilor şi canalelor media propuse:"
+        title={t("media.title")}
+        subtitle={t("media.subtitle")}
+        description={t("media.description")}
         heroImages={{
-          topLeft: { src: "/images/microphone.jpeg", alt: "Microphone" },
-          bottomLeft: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
-          topRight: { src: "/images/modern-interior.jpeg", alt: "Modern interior" },
-          bottomRight: { src: "/images/cat.webp", alt: "Cat in black and white" },
+          topLeft: { src: "/images/microphone.jpeg", alt: t("media.images.microphone") },
+          bottomLeft: { src: "/images/street-shadows.jpeg", alt: t("media.images.streetShadows") },
+          topRight: { src: "/images/modern-interior.jpeg", alt: t("media.images.modernInterior") },
+          bottomRight: { src: "/images/cat.webp", alt: t("media.images.cat") },
         }}
       />
       <ServicePage
-        title="Servicii"
-        subtitle="Media"
-        description="Vă punem la dispoziție o platformă dedicată aplicării unor idei proaspete și ale unui stil de viață sănătos. Noi propunem dezvoltarea unui plan decomunicare pentru identificarea gradului de notorietatea a brandului ori a afacerii."
+        title={t("media.service.title")}
+        subtitle={t("media.service.subtitle")}
+        description={t("media.service.description")}
         image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
         features={[
           {
-            title: "Strategii pentru dezovltarea produsului",
-            description:
-              "Dezvoltăm strategii media de marketing bazându-ne pe canalele media și dezvolatarea de concepte creative.",
+            title: t("media.features.strategy.title"),
+            description: t("media.features.strategy.description"),
             icon: <Target className="w-6 h-6 text-white" />,
           },
           {
-            title: "Productie audio-vizual și multimedia",
-            description: "Producem materiale video, audio cât și multimedia ale produsului vostru.",
+            title: t("media.features.production.title"),
+            description: t("media.features.production.description"),
             icon: <Camera className="w-6 h-6 text-white" />,
           },
           {
-            title: "Creearea unei Emisiuni",
-            description:
-              "Credem că creearea unei Eminisiuni Online dedicate unei audiențe specifice. targetate poate aduce beneficii",
+            title: t("media.features.broadcast.title"),
+            description: t("media.features.broadcast.description"),
             icon: <Tv className="w-6 h-6 text-white" />,
           },
         ]}

@@ -1,18 +1,23 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { ClientsGrid } from "@/components/clients-grid"
+import { useLanguage } from "@/lib/language-context"
 
 export default function ClientsPage() {
+  const { t } = useLanguage()
+  
   return (
     <>
       <PageHero
-        title="Clienții"
-        subtitle="noștri"
-        description="Am avut plăcerea de a lucra cu o varietate de clienți din diverse industrii. Iată câțiva dintre partenerii noștri de încredere."
+        title={t("clients.title")}
+        subtitle={t("clients.subtitle")}
+        description={t("clients.description")}
         heroImages={{
-          topLeft: { src: "/images/modern-interior.jpeg", alt: "Modern interior" },
-          bottomLeft: { src: "/images/landscape-dock.jpeg", alt: "Landscape with dock" },
-          topRight: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
-          bottomRight: { src: "/images/vintage-camera.jpeg", alt: "Vintage camera" },
+          topLeft: { src: "/images/modern-interior.jpeg", alt: t("clients.images.modernInterior") },
+          bottomLeft: { src: "/images/landscape-dock.jpeg", alt: t("clients.images.landscapeDock") },
+          topRight: { src: "/images/street-shadows.jpeg", alt: t("clients.images.streetShadows") },
+          bottomRight: { src: "/images/vintage-camera.jpeg", alt: t("clients.images.vintageCamera") },
         }}
       />
       <ClientsGrid />

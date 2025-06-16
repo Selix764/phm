@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
+import { useLanguage } from "@/lib/language-context"
 
 interface HeroImage {
   src: string
@@ -32,23 +33,29 @@ interface PageHeroProps {
 export function PageHero({
   title,
   subtitle,
-  description = "Suntem o platformă şi un canal de comunicare cu experienţă în producţia de media şi lifestyle, ce oferă soluţii creative pentru susţinerea succesului oricărei afaceri din orice domeniu.",
+  description,
   showCta = true,
-  ctaText = "Solicită o ofertă",
+  ctaText,
   ctaLink = "/contact",
-  secondaryCtaText = "Vezi proiectele noastre",
+  secondaryCtaText,
   secondaryCtaLink = "/projects",
   heroImages,
   isContactPage = false,
 }: PageHeroProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const { t } = useLanguage()
+
+  // Use translations for default values if not provided
+  const finalDescription = description || t("pageHero.defaultDescription")
+  const finalCtaText = ctaText || t("pageHero.requestQuote")
+  const finalSecondaryCtaText = secondaryCtaText || t("pageHero.viewProjects")
 
   // Default hero images if none are provided
   const defaultHeroImages = {
-    topLeft: { src: "/images/cat.webp", alt: "Cat in black and white" },
-    bottomLeft: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
-    topRight: { src: "/images/silhouette-stripes.png", alt: "Silhouette with stripes" },
-    bottomRight: { src: "/images/landscape-dock.jpeg", alt: "Landscape with dock" },
+    topLeft: { src: "/images/cat.webp", alt: t("pageHero.images.cat") },
+    bottomLeft: { src: "/images/street-shadows.jpeg", alt: t("pageHero.images.streetShadows") },
+    topRight: { src: "/images/silhouette-stripes.png", alt: t("pageHero.images.silhouetteStripes") },
+    bottomRight: { src: "/images/landscape-dock.jpeg", alt: t("pageHero.images.landscapeDock") },
   }
 
   // Merge provided images with defaults
@@ -127,7 +134,7 @@ export function PageHero({
             </h1>
           </div>
 
-          <p className="text-lg sm:text-xl md:text-[22px] text-white/80 mb-10 max-w-[600px]">{description}</p>
+          <p className="text-lg sm:text-xl md:text-[22px] text-white/80 mb-10 max-w-[600px]">{finalDescription}</p>
 
           {showCta && (
             <div className="flex flex-wrap gap-4 sm:gap-6">
@@ -135,14 +142,14 @@ export function PageHero({
                 href={ctaLink}
                 className="group bg-[#FF0000] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all flex items-center text-base sm:text-lg"
               >
-                {ctaText}
+                {finalCtaText}
                 <ChevronRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href={secondaryCtaLink}
                 className="border border-white text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-medium hover:bg-white hover:text-black transition-all text-base sm:text-lg"
               >
-                {secondaryCtaText}
+                {finalSecondaryCtaText}
               </Link>
             </div>
           )}
@@ -206,19 +213,19 @@ export function PageHero({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">200+</h3>
-            <p className="text-white/80">Proiecte finalizate</p>
+            <p className="text-white/80">{t("hero.stats.completedProjects")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">15+</h3>
-            <p className="text-white/80">Ani de experiență</p>
+            <p className="text-white/80">{t("hero.stats.yearsExperience")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">150+</h3>
-            <p className="text-white/80">Clienți mulțumiți</p>
+            <p className="text-white/80">{t("hero.stats.satisfiedClients")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">98%</h3>
-            <p className="text-white/80">Rată de satisfacție</p>
+            <p className="text-white/80">{t("hero.stats.satisfactionRate")}</p>
           </div>
         </div>
       </motion.div>

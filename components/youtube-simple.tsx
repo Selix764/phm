@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Play, Calendar, Eye, ExternalLink } from "lucide-react"
 import { getVideosByCategory, type VideoData, getViewCount } from "@/lib/youtube-data"
+import { useLanguage } from "@/lib/language-context"
 
 interface YouTubeSimpleProps {
   title?: string
@@ -13,12 +14,14 @@ interface YouTubeSimpleProps {
 }
 
 export function YouTubeSimple({
-  title = "Videoclipuri YouTube",
+  title,
   description,
   maxVideos = 3,
   category = "all",
   className = "",
 }: YouTubeSimpleProps) {
+  const { t } = useLanguage()
+  
   // Get videos and filter out ones with less than 5 views
   const [videos] = useState<VideoData[]>(() => {
     const allVideos = getVideosByCategory(category, maxVideos * 2) // Get more videos to account for filtering
@@ -46,7 +49,7 @@ export function YouTubeSimple({
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white px-4 py-2 rounded-full transition-colors text-sm"
           >
-            <span>Vezi toate pe YouTube</span>
+                          <span>{t("education.viewAllYoutube")}</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>

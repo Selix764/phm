@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 interface ServicePageProps {
   title: string
@@ -27,9 +28,14 @@ export function ServicePage({
   description,
   features = [], // Add default empty array
   image,
-  ctaText = "Solicită o ofertă",
+  ctaText,
   ctaLink = "/contact",
 }: ServicePageProps) {
+  const { t } = useLanguage()
+  
+  // Use translations for default values
+  const finalCtaText = ctaText || t("services.requestQuote")
+
   return (
     <section className="pt-[120px] pb-[80px] px-5 md:px-[120px] max-w-[1400px] mx-auto">
       {/* Hero Section */}
@@ -47,14 +53,14 @@ export function ServicePage({
               href={ctaLink}
               className="group bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all flex items-center"
             >
-              {ctaText}
+              {finalCtaText}
               <ChevronRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/projects"
               className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all"
             >
-              Vezi proiectele noastre
+              {t("services.viewProjects")}
             </Link>
           </div>
         </motion.div>
@@ -80,9 +86,9 @@ export function ServicePage({
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-bold text-[40px] text-white mb-4">Ce oferim</h2>
+            <h2 className="font-bold text-[40px] text-white mb-4">{t("services.whatWeOffer")}</h2>
             <p className="text-[18px] text-white/70 max-w-[600px] mx-auto">
-              Descoperă serviciile noastre specializate de {title.toLowerCase()}
+              {t("services.discoverServices").replace("{service}", title.toLowerCase())}
             </p>
           </motion.div>
 
@@ -116,15 +122,15 @@ export function ServicePage({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="font-bold text-[32px] text-white mb-4">Pregătit să începem?</h2>
+        <h2 className="font-bold text-[32px] text-white mb-4">{t("services.readyToStart")}</h2>
         <p className="text-[18px] text-white/70 max-w-[600px] mx-auto mb-8">
-          Contactează-ne astăzi pentru a discuta despre proiectul tău și pentru a afla cum te putem ajuta.
+          {t("services.contactUs")}
         </p>
         <Link
           href={ctaLink}
           className="inline-block bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all"
         >
-          {ctaText}
+          {finalCtaText}
         </Link>
       </motion.div>
     </section>

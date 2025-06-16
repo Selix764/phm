@@ -1,20 +1,25 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { Contact } from "@/components/contact"
+import { useLanguage } from "@/lib/language-context"
 
 export default function ContactPage() {
+  const { t } = useLanguage()
+  
   return (
     <>
       <PageHero
-        title="Contactează-"
-        subtitle="ne"
-        description="Suntem aici pentru a răspunde întrebărilor tale și pentru a te ajuta să găsești soluția perfectă pentru video-urile tale."
+        title={t("contact.title")}
+        subtitle={t("contact.subtitle")}
+        description={t("contact.description")}
         heroImages={{
-          topLeft: { src: "/images/modern-interior.jpeg", alt: "Modern interior" },
-          bottomLeft: { src: "/images/silhouette-stripes.png", alt: "Silhouette with stripes" },
-          topRight: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
-          bottomRight: { src: "/images/microphone.jpeg", alt: "Microphone" },
+          topLeft: { src: "/images/modern-interior.jpeg", alt: t("contact.images.modernInterior") },
+          bottomLeft: { src: "/images/silhouette-stripes.png", alt: t("contact.images.silhouetteStripes") },
+          topRight: { src: "/images/street-shadows.jpeg", alt: t("contact.images.streetShadows") },
+          bottomRight: { src: "/images/microphone.jpeg", alt: t("contact.images.microphone") },
         }}
-        isContactPage={true} // Set this to true for the contact page
+        isContactPage={true}
       />
       <Contact />
     </>

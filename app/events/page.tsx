@@ -1,43 +1,45 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { ServicePage } from "@/components/service-page"
 import { Users, Lightbulb, Award } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export default function EventsPage() {
+  const { t } = useLanguage()
+  
   return (
     <>
       <PageHero
-        title="Organizare"
-        subtitle="Evenimente"
-        description="Vă punem la dispoziție o gamă largă de evenimente cu standarde de înaltă tehnologie."
+        title={t("services.events.title")}
+        subtitle={t("services.events.subtitle")}
+        description={t("services.events.description")}
         heroImages={{
-          topLeft: { src: "/images/cat.webp", alt: "Cat in black and white" },
-          bottomLeft: { src: "/images/landscape-dock.jpeg", alt: "Landscape with dock" },
-          topRight: { src: "/images/silhouette-stripes.png", alt: "Silhouette with stripes" },
-          bottomRight: { src: "/images/microphone.jpeg", alt: "Microphone" },
+          topLeft: { src: "/images/cat.webp", alt: t("about.images.cat") },
+          bottomLeft: { src: "/images/landscape-dock.jpeg", alt: t("projects.images.landscapeDock") },
+          topRight: { src: "/images/silhouette-stripes.png", alt: t("contact.images.silhouetteStripes") },
+          bottomRight: { src: "/images/microphone.jpeg", alt: t("media.images.microphone") },
         }}
       />
       <ServicePage
-        title="Organizare"
-        subtitle="Evenimente"
-        description="Vă punem la dispoziție o gamă largă de evenimente cu standarde de înaltă tehnologie. Indiferent de evenimentul dvs., vă oferim consultanță pentru a executa orice mărime sau tip de eveniment. Creăm amintiri pentru"
+        title={t("services.events.title")}
+        subtitle={t("services.events.subtitle")}
+        description={t("services.events.fullDescription")}
         image="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
         features={[
           {
-            title: "Evenimente Sociale și Caritabile",
-            description:
-              "Oferim servicii profesionale de captare video pentru evenimente caritabile, gale și inițiative sociale, la calitate cinematografică, evidențiind emoția și mesajul momentului.",
+            title: t("services.events.features.social.title"),
+            description: t("services.events.features.social.description"),
             icon: <Award className="w-6 h-6 text-white" />,
           },
           {
-            title: "Evenimente Corporative",
-            description:
-              "Realizăm materiale video de înaltă rezoluție pentru conferințe, lansări de produse și întâlniri de afaceri, ideale pentru promovare internă sau externă.",
+            title: t("services.events.features.corporate.title"),
+            description: t("services.events.features.corporate.description"),
             icon: <Users className="w-6 h-6 text-white" />,
           },
           {
-            title: "Evenimente Tematice",
-            description:
-              "Surprindem atmosfera unică a petrecerilor tematice, aniversărilor și festivalurilor cu imagini dinamice și montaj creativ, perfecte pentru promovarea online.",
+            title: t("services.events.features.thematic.title"),
+            description: t("services.events.features.thematic.description"),
             icon: <Lightbulb className="w-6 h-6 text-white" />,
           },
         ]}

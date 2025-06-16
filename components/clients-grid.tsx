@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useLanguage } from "@/lib/language-context"
 
 interface Client {
   name: string
@@ -9,6 +10,8 @@ interface Client {
 }
 
 export function ClientsGrid() {
+  const { t } = useLanguage()
+  
   const clients: Client[] = [
     {
       name: "AQUA CARPATICA",
@@ -101,10 +104,9 @@ export function ClientsGrid() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h2 className="font-bold text-[40px] text-white mb-4">Clienții noștri</h2>
+        <h2 className="font-bold text-[40px] text-white mb-4">{t("clientsGrid.title")}</h2>
         <p className="text-[18px] text-white/70 max-w-[600px] mx-auto">
-          Am avut plăcerea să colaborăm cu branduri de renume și organizații din diverse industrii. Iată câțiva dintre
-          clienții noștri.
+          {t("clientsGrid.description")}
         </p>
       </motion.div>
 
@@ -139,10 +141,9 @@ export function ClientsGrid() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h3 className="text-2xl font-bold text-white mb-6">Devino și tu clientul nostru</h3>
+        <h3 className="text-2xl font-bold text-white mb-6">{t("clientsGrid.becomeClient.title")}</h3>
         <p className="text-[18px] text-white/70 max-w-[600px] mx-auto mb-8">
-          Suntem pregătiți să transformăm ideile tale în realitate. Contactează-ne astăzi pentru a discuta despre
-          proiectul tău.
+          {t("clientsGrid.becomeClient.description")}
         </p>
         <motion.a
           href="/contact"
@@ -150,7 +151,7 @@ export function ClientsGrid() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Contactează-ne
+          {t("clientsGrid.becomeClient.cta")}
         </motion.a>
       </motion.div>
     </section>

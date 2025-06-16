@@ -3,8 +3,11 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { useLanguage } from "@/lib/language-context"
 
 export function AboutUs() {
+  const { t } = useLanguage()
+  
   return (
     <section id="about-us" className="py-[100px] px-5 md:px-[120px] max-w-[1400px] mx-auto bg-black">
       <motion.div
@@ -14,11 +17,9 @@ export function AboutUs() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h2 className="font-bold text-[40px] text-white mb-4">Despre noi</h2>
+        <h2 className="font-bold text-[40px] text-white mb-4">{t("aboutUs.title")}</h2>
         <p className="text-[18px] text-white/70 max-w-[800px] mx-auto">
-          Perfect Home Media (PHM) este o agenție de publicitate full-service, specializată în producție publicitară,
-          organizare de evenimente și servicii media. Cu o experiență de peste 15 ani în industrie, am dezvoltat
-          campanii de succes pentru branduri naționale și internaționale.
+          {t("aboutUs.description")}
         </p>
       </motion.div>
 
@@ -33,18 +34,18 @@ export function AboutUs() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-lg overflow-hidden shadow-lg h-[200px] relative">
-                  <Image src="/images/modern-interior.jpeg" alt="Modern interior" fill className="object-cover" />
+                  <Image src="/images/modern-interior.jpeg" alt={t("aboutUs.images.modernInterior")} fill className="object-cover" />
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg h-[280px] relative">
-                  <Image src="/images/street-shadows.jpeg" alt="Street shadows" fill className="object-cover" />
+                  <Image src="/images/street-shadows.jpeg" alt={t("aboutUs.images.streetShadows")} fill className="object-cover" />
                 </div>
               </div>
               <div className="space-y-4 mt-8">
                 <div className="rounded-lg overflow-hidden shadow-lg h-[280px] relative">
-                  <Image src="/images/landscape-dock.jpeg" alt="Landscape with dock" fill className="object-cover" />
+                  <Image src="/images/landscape-dock.jpeg" alt={t("aboutUs.images.landscapeDock")} fill className="object-cover" />
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg h-[200px] relative">
-                  <Image src="/images/microphone.jpeg" alt="Microphone" fill className="object-cover" />
+                  <Image src="/images/microphone.jpeg" alt={t("aboutUs.images.microphone")} fill className="object-cover" />
                 </div>
               </div>
             </div>
@@ -58,36 +59,31 @@ export function AboutUs() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold text-[28px] text-white mb-6">Povestea PHM</h3>
+          <h3 className="font-bold text-[28px] text-white mb-6">{t("aboutUs.story.title")}</h3>
           <p className="text-[16px] text-white/70 mb-6">
-            PHM a luat naștere dintr-o nevoie reală: lipsa unor servicii de promovare media eficiente pentru brandurile
-            aflate în plină expansiune, atât naționale, cât și internaționale, în România.
+            {t("aboutUs.story.paragraph1")}
           </p>
           <p className="text-[16px] text-white/70 mb-6">
-            „Ideea PHM a apărut după numeroase participări la evenimente publicitare și campanii media, fie ca persoană
-            publică, fie ca om de televiziune. Am simțit atunci că era nevoie de mai mult: de o schimbare reală în felul
-            în care facem publicitate, în modul în care comunicăm vizual și emoțional cu publicul. În 2006, am fondat
-            Perfect Home Media tocmai pentru a răspunde acestei cereri. Creșterea PHM a devenit vizibilă în 2006, odată
-            cu dezvoltarea pieței media locale."
+            {t("aboutUs.story.paragraph2")}
           </p>
           
 
           <div className="grid grid-cols-2 gap-6 mt-8 mb-8">
             <div className="flex flex-col">
               <span className="text-[40px] font-bold text-[#FF0000]">200+</span>
-              <span className="text-white/70">Proiecte finalizate</span>
+              <span className="text-white/70">{t("aboutUs.stats.projects")}</span>
             </div>
             <div className="flex flex-col">
               <span className="text-[40px] font-bold text-[#FF0000]">150+</span>
-              <span className="text-white/70">Clienți mulțumiți</span>
+              <span className="text-white/70">{t("aboutUs.stats.clients")}</span>
             </div>
             <div className="flex flex-col">
               <span className="text-[40px] font-bold text-white">15+</span>
-              <span className="text-white/70">Ani de experiență</span>
+              <span className="text-white/70">{t("aboutUs.stats.experience")}</span>
             </div>
             <div className="flex flex-col">
               <span className="text-[40px] font-bold text-white">20+</span>
-              <span className="text-white/70">Membri în echipă</span>
+              <span className="text-white/70">{t("aboutUs.stats.team")}</span>
             </div>
           </div>
 
@@ -96,13 +92,13 @@ export function AboutUs() {
               href="/contact"
               className="bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all text-center"
             >
-              Contactează-ne
+              {t("aboutUs.buttons.contact")}
             </Link>
             <Link
               href="/clients"
               className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all text-center"
             >
-              Vezi clienții noștri
+              {t("aboutUs.buttons.viewClients")}
             </Link>
           </div>
         </motion.div>
@@ -118,20 +114,17 @@ export function AboutUs() {
       >
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h3 className="font-bold text-[28px] text-white mb-6">Cine suntem</h3>
+            <h3 className="font-bold text-[28px] text-white mb-6">{t("aboutUs.whoWeAre.title")}</h3>
             <p className="text-[16px] text-white/70 mb-6">
-              PHM este o platformă și un canal de comunicare creativ, cu experiență solidă în media, branding și
-              <span className="text-[#FF0000]"> lifestyle</span>. Oferim soluții moderne și eficiente, personalizate
-              pentru succesul afacerii tale – indiferent de domeniu.
+              {t("aboutUs.whoWeAre.description")}
             </p>
-            <h3 className="font-bold text-[28px] text-white mb-6 mt-10">Misiunea noastră</h3>
+            <h3 className="font-bold text-[28px] text-white mb-6 mt-10">{t("aboutUs.mission.title")}</h3>
             <p className="text-[16px] text-white/70 mb-6">
-              Să transformăm ideile în povești vizuale puternice și branduri cu impact. De la strategie la execuție, ne
-              implicăm 100% în fiecare proiect.
+              {t("aboutUs.mission.description")}
             </p>
           </div>
           <div>
-            <h3 className="font-bold text-[28px] text-white mb-6">Ce oferim</h3>
+            <h3 className="font-bold text-[28px] text-white mb-6">{t("aboutUs.whatWeOffer.title")}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <div className="bg-[#FF0000] p-2 rounded-full mt-1 flex-shrink-0">
@@ -151,7 +144,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Producție media completă (video, audio, fotografie, podcast)</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.mediaProduction")}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -172,7 +165,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Branding & rebranding</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.branding")}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -193,7 +186,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Campanii integrate de comunicare</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.campaigns")}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -214,7 +207,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Evenimente, activări BTL și proiecte speciale</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.events")}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -235,7 +228,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Strategii de promovare personalizate</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.personalizedStrategies")}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -256,7 +249,7 @@ export function AboutUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/70">Soluții multimedia pentru online și televiziune</p>
+                  <p className="text-white/70">{t("aboutUs.whatWeOffer.items.multimediaSolutions")}</p>
                 </div>
               </li>
             </ul>
@@ -269,7 +262,7 @@ export function AboutUs() {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold text-[28px] text-white mb-6">De ce PHM?</h3>
+          <h3 className="font-bold text-[28px] text-white mb-6">{t("aboutUs.whyPHM.title")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
               <div className="bg-[#FF0000] p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
@@ -289,8 +282,8 @@ export function AboutUs() {
                   <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Experiență dovedită</h4>
-              <p className="text-white/70">Experiență dovedită în media & lifestyle</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.provenExperience")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.provenExperienceDescription")}</p>
             </div>
 
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
@@ -317,8 +310,8 @@ export function AboutUs() {
                   <path d="m16.24 7.76 2.83-2.83"></path>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Creativitate</h4>
-              <p className="text-white/70">Creativitate aplicată strategic</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.creativity")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.creativityDescription")}</p>
             </div>
 
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
@@ -339,8 +332,8 @@ export function AboutUs() {
                   <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Flexibilitate</h4>
-              <p className="text-white/70">Flexibilitate în abordare</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.flexibility")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.flexibilityDescription")}</p>
             </div>
 
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
@@ -363,8 +356,8 @@ export function AboutUs() {
                   <circle cx="7" cy="7" r="3"></circle>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Standarde înalte</h4>
-              <p className="text-white/70">Proiecte livrate la standarde internaționale</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.highStandards")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.highStandardsDescription")}</p>
             </div>
 
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
@@ -387,8 +380,8 @@ export function AboutUs() {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Rețea solidă</h4>
-              <p className="text-white/70">Rețea solidă de colaboratori și parteneri</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.strongNetwork")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.strongNetworkDescription")}</p>
             </div>
 
             <div className="bg-black/30 p-6 rounded-xl border border-white/10 hover:border-[#FF0000]/50 transition-all">
@@ -410,8 +403,8 @@ export function AboutUs() {
                   <rect width="20" height="8" x="2" y="14" rx="2"></rect>
                 </svg>
               </div>
-              <h4 className="text-white font-semibold text-lg mb-2">Rezultate măsurabile</h4>
-              <p className="text-white/70">Campanii orientate spre rezultate concrete</p>
+              <h4 className="text-white font-semibold text-lg mb-2">{t("aboutUs.whyPHM.items.measurableResults")}</h4>
+              <p className="text-white/70">{t("aboutUs.whyPHM.items.measurableResultsDescription")}</p>
             </div>
           </div>
         </motion.div>
@@ -425,15 +418,15 @@ export function AboutUs() {
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h3 className="font-bold text-[28px] text-white mb-6">Alege PHM. Alege să fii remarcat.</h3>
-        <p className="text-white/70 mb-8">
-          📩 Contactează-ne astăzi și hai să construim împreună viitorul brandului tău.
-        </p>
-        <Link
-          href="/contact"
-          className="bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all inline-block"
-        >
-          Contactează-ne
+                 <h3 className="font-bold text-[28px] text-white mb-6">{t("aboutUs.finalCta.title")}</h3>
+         <p className="text-white/70 mb-8">
+           📩 {t("aboutUs.finalCta.paragraph")}
+         </p>
+         <Link
+           href="/contact"
+           className="bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all inline-block"
+         >
+           {t("aboutUs.finalCta.button")}
         </Link>
       </motion.div>
     </section>

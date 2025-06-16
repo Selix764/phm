@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, Suspense } from "react"
 import { Play, Calendar, Eye, ExternalLink, AlertCircle, RefreshCw } from "lucide-react"
 import { formatViewCount, formatDate, type YouTubeVideo, type YouTubeResponse } from "@/lib/youtube-api"
+import { useLanguage } from "@/lib/language-context"
 
 interface YouTubeRobustProps {
   title?: string
@@ -86,13 +87,14 @@ function VideoGrid({ videos }: { videos: YouTubeVideo[] }) {
 }
 
 export function YouTubeRobust({
-  title = "Videoclipuri YouTube",
+  title,
   description,
   maxVideos = 6,
   category = "all",
   className = "",
   autoLoad = true,
 }: YouTubeRobustProps) {
+  const { t } = useLanguage()
   const [videos, setVideos] = useState<YouTubeVideo[]>([])
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
   const [error, setError] = useState<string | null>(null)
@@ -260,7 +262,7 @@ export function YouTubeRobust({
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white px-4 py-2 rounded-full transition-colors text-sm"
             >
-              <span>Vezi toate pe YouTube</span>
+              <span>{t("education.viewAllYoutube")}</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
@@ -279,14 +281,14 @@ export function YouTubeRobust({
         {isError(loadingState) && videos.length === 0 && (
           <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center">
             <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-3" />
-            <h3 className="text-red-500 font-medium mb-1">Nu s-au putut încărca videoclipurile</h3>
+            <h3 className="text-red-500 font-medium mb-1">{t("education.errorLoading")}</h3>
             <p className="text-red-400/80 text-sm mb-4">{error}</p>
             <button
               onClick={handleRetry}
               className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition-colors"
             >
               <RefreshCw className="w-4 h-4" />
-              Încearcă din nou
+              {t("education.tryAgain")}
             </button>
           </div>
         )}

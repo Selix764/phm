@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+import { useLanguage } from "@/lib/language-context"
 
 // Define image interface
 interface ProjectImage {
@@ -149,26 +150,27 @@ const projectImages: ProjectImage[] = [
   },
 ]
 
-// Get unique event names for filter buttons
-const eventNames = ["All", ...Array.from(new Set(projectImages.map((img) => img.event)))]
-
 export function ProjectGallery() {
   const [selectedEvent, setSelectedEvent] = useState("All")
   const [filteredImages, setFilteredImages] = useState<ProjectImage[]>(projectImages)
+  const { t } = useLanguage()
+
+  // Get unique event names for filter buttons with translation
+  const eventNames = [t("projectGallery.filters.all"), ...Array.from(new Set(projectImages.map((img) => img.event)))]
 
   // Filter images when selected event changes
   useEffect(() => {
-    if (selectedEvent === "All") {
+    if (selectedEvent === t("projectGallery.filters.all")) {
       setFilteredImages(projectImages)
     } else {
       setFilteredImages(projectImages.filter((img) => img.event === selectedEvent))
     }
-  }, [selectedEvent])
+  }, [selectedEvent, t])
 
   return (
     <section className="py-20 px-4 bg-black text-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8 text-center">Galerie de Proiecte</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center">{t("projectGallery.title")}</h2>
 
         {/* Filter buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">

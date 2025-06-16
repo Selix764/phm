@@ -4,14 +4,16 @@ import { motion } from "framer-motion"
 import { Camera, Radio, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useLanguage } from "@/lib/language-context"
 
 export function ServicesOverview() {
+  const { t } = useLanguage()
+  
   const services = [
     {
       icon: <Camera className="w-6 h-6 text-white" />,
-      title: "Producție Publicitară",
-      description:
-        "Vă punem la dispoziție o mare varietate de materiale cu opțiuni de finisare și materiale promoționale pentru orice tip de afacere. Membrii echipei noastre sunt gata să vă ajute cu soluții de imprimare care vor crea materiale de marketing personalizate.",
+      title: t("services.advertising.title"),
+      description: t("services.advertising.description"),
       color: "#FF0000",
       link: "/productie-publicitara",
       image:
@@ -19,9 +21,8 @@ export function ServicesOverview() {
     },
     {
       icon: <Radio className="w-6 h-6 text-white" />,
-      title: "Media",
-      description:
-        "Vă punem la dispoziție o platformă dedicată aplicării unor idei proaspete și ale unui stil de viață sănătos. Noi propunem dezvoltarea unui plan decomunicare pentru identificarea gradului de notorietatea a brandului ori a afacerii.",
+      title: t("services.media.title"),
+      description: t("services.media.description"),
       color: "#FF0000",
       link: "/media",
       image:
@@ -29,9 +30,8 @@ export function ServicesOverview() {
     },
     {
       icon: <Calendar className="w-6 h-6 text-white" />,
-      title: "Evenimente",
-      description:
-        "Vă punem la dispoziție o gamă largă de evenimente cu standarde de înaltă tehnologie. Indiferent de evenimentul dvs., vă oferim consultanță pentru a executa orice mărime sau tip de eveniment. Creăm amintiri pentru",
+      title: t("services.events.title"),
+      description: t("services.events.description"),
       color: "#FF0000",
       link: "/evenimente",
       image:
@@ -48,10 +48,9 @@ export function ServicesOverview() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <h2 className="font-bold text-[40px] text-white mb-4">Serviciile noastre</h2>
+        <h2 className="font-bold text-[40px] text-white mb-4">{t("services.title")}</h2>
         <p className="text-[18px] text-white/70 max-w-[600px] mx-auto">
-          Oferim soluții complete pentru a vă ajuta să vă promovați afacerea și să creați experiențe memorabile pentru
-          clienții dumneavoastră.
+          {t("services.description")}
         </p>
       </motion.div>
 
@@ -86,7 +85,7 @@ export function ServicesOverview() {
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-white/70 mb-4">{service.description}</p>
                 <div className="flex items-center text-[#FF0000] font-medium group-hover:underline">
-                  Află mai multe
+                  {t("services.learnMore")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

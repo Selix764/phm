@@ -1,18 +1,23 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { AboutUs } from "@/components/about-us"
+import { useLanguage } from "@/lib/language-context"
 
 export default function AboutPage() {
+  const { t } = useLanguage()
+
   return (
     <>
       <PageHero
-        title="Despre"
-        subtitle="noi"
-        description="Perfect Home Media (PHM) este o agenție de publicitate full-service, specializată în producție publicitară, organizare de evenimente și servicii media"
+        title={t('about.title')}
+        subtitle={t('about.subtitle')}
+        description={t('about.description')}
         heroImages={{
-          topLeft: { src: "/images/vintage-camera.jpeg", alt: "Vintage camera" },
-          bottomLeft: { src: "/images/cat.webp", alt: "Cat in black and white" },
-          topRight: { src: "/images/microphone.jpeg", alt: "Microphone" },
-          bottomRight: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
+          topLeft: { src: "/images/vintage-camera.jpeg", alt: t('about.images.vintageCamera') },
+          bottomLeft: { src: "/images/cat.webp", alt: t('about.images.cat') },
+          topRight: { src: "/images/microphone.jpeg", alt: t('about.images.microphone') },
+          bottomRight: { src: "/images/street-shadows.jpeg", alt: t('about.images.streetShadows') },
         }}
       />
       <AboutUs />

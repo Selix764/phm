@@ -5,11 +5,13 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { ChevronRight, Calendar, Eye, Play } from "lucide-react"
 import type { YouTubeVideo } from "@/lib/youtube-api"
+import { useLanguage } from "@/lib/language-context"
 
 export function HeroSimple() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [latestVideo, setLatestVideo] = useState<YouTubeVideo | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { t } = useLanguage()
 
   // Fetch latest video
   useEffect(() => {
@@ -100,11 +102,11 @@ export function HeroSimple() {
           </div>
 
           <h1 className="font-bold text-[42px] md:text-[56px] leading-[1.1] text-white mb-6">
-            We brand your <span style={{ color: "#FF0000" }}>lifestyle</span>
+            {t("hero.title")} <span style={{ color: "#FF0000" }}>{t("hero.titleHighlight")}</span>
           </h1>
 
           <p className="text-[18px] text-white/80 mb-8 max-w-[600px]">
-            Suntem mai mult decât o agenție de media. Suntem partenerul tău în construirea unui brand memorabil.
+            {t("hero.description")}
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -112,20 +114,20 @@ export function HeroSimple() {
               href="#contact"
               className="group bg-[#FF0000] text-white px-8 py-3 rounded-full font-medium hover:bg-[#FF0000]/90 transition-all flex items-center"
             >
-              Solicită o ofertă
+              {t("hero.requestQuote")}
               <ChevronRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#projects"
               className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all"
             >
-              Vezi proiectele noastre
+              {t("hero.viewProjects")}
             </a>
           </div>
 
           {/* Floating Cards */}
           <div className="mt-12">
-            <p className="text-sm text-white/60 mb-4">Descoperă mai mult:</p>
+            <p className="text-sm text-white/60 mb-4">{t("hero.discoverMore")}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* YouTube Video Card */}
               <motion.div
@@ -161,7 +163,7 @@ export function HeroSimple() {
 
                     <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-0.5 rounded-full flex items-center gap-1">
                       <Eye className="w-2.5 h-2.5 text-white/80" />
-                        <span className="text-white text-[10px]">{latestVideo.viewCount || '0'} vizualizări</span>
+                        <span className="text-white text-[10px]">{latestVideo.viewCount || '0'} {t("hero.views")}</span>
                     </div>
 
                     <div className="absolute top-2 left-2 bg-black/50 p-1 rounded">
@@ -183,7 +185,7 @@ export function HeroSimple() {
                   </a>
                 ) : (
                   <div className="h-[120px] bg-gray-800 flex items-center justify-center">
-                    <p className="text-white/60 text-sm">Nu s-au găsit videoclipuri</p>
+                    <p className="text-white/60 text-sm">{t("hero.noVideosFound")}</p>
                   </div>
                 )}
               </motion.div>
@@ -216,7 +218,7 @@ export function HeroSimple() {
                       {upcomingEvent.date} • {upcomingEvent.location}
                     </p>
                     <div className="flex items-center text-[#FF0000] text-xs font-medium group-hover:underline">
-                      Vezi toate evenimentele
+                      {t("hero.viewAllEvents")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -297,19 +299,19 @@ export function HeroSimple() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">200+</h3>
-            <p className="text-white/80">Proiecte finalizate</p>
+            <p className="text-white/80">{t("hero.stats.completedProjects")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">15+</h3>
-            <p className="text-white/80">Ani de experiență</p>
+            <p className="text-white/80">{t("hero.stats.yearsExperience")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">150+</h3>
-            <p className="text-white/80">Clienți mulțumiți</p>
+            <p className="text-white/80">{t("hero.stats.satisfiedClients")}</p>
           </div>
           <div className="text-center">
             <h3 className="text-[#FF0000] text-3xl font-bold">98%</h3>
-            <p className="text-white/80">Rată de satisfacție</p>
+            <p className="text-white/80">{t("hero.stats.satisfactionRate")}</p>
           </div>
         </div>
       </motion.div>

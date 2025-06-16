@@ -1,18 +1,23 @@
+"use client"
+
 import { PageHero } from "@/components/page-hero"
 import { ProjectGallery } from "@/components/project-gallery"
+import { useLanguage } from "@/lib/language-context"
 
 export default function ProjectsPage() {
+  const { t } = useLanguage()
+  
   return (
     <>
       <PageHero
-        title="Proiectele"
-        subtitle="noastre"
-        description="Descoperă o selecție din proiectele noastre recente și vezi cum am ajutat alte afaceri să își atingă obiectivele."
+        title={t("projects.title")}
+        subtitle={t("projects.subtitle")}
+        description={t("projects.description")}
         heroImages={{
-          topLeft: { src: "/images/landscape-dock.jpeg", alt: "Landscape with dock" },
-          bottomLeft: { src: "/images/microphone.jpeg", alt: "Microphone" },
-          topRight: { src: "/images/vintage-camera.jpeg", alt: "Vintage camera" },
-          bottomRight: { src: "/images/street-shadows.jpeg", alt: "Street with shadows" },
+          topLeft: { src: "/images/landscape-dock.jpeg", alt: t("projects.images.landscapeDock") },
+          bottomLeft: { src: "/images/microphone.jpeg", alt: t("projects.images.microphone") },
+          topRight: { src: "/images/vintage-camera.jpeg", alt: t("projects.images.vintageCamera") },
+          bottomRight: { src: "/images/street-shadows.jpeg", alt: t("projects.images.streetShadows") },
         }}
       />
       <ProjectGallery />

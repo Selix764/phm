@@ -6,11 +6,13 @@ import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useLanguage } from "@/lib/language-context"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,21 +24,21 @@ export function Navbar() {
   }, [])
 
   const navItems = [
-    { name: "Acasă", href: "/" },
-    { name: "Despre noi", href: "/about" },
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.about"), href: "/about" },
     {
-      name: "Servicii",
+      name: t("nav.services"),
       href: "#",
       dropdown: true,
       items: [
-        { name: "Producție Publicitară", href: "/productie-publicitara" },
-        { name: "Media", href: "/media" },
-        { name: "Evenimente", href: "/evenimente" },
+        { name: t("nav.servicesDropdown.advertising"), href: "/productie-publicitara" },
+        { name: t("nav.servicesDropdown.media"), href: "/media" },
+        { name: t("nav.servicesDropdown.events"), href: "/evenimente" },
       ],
     },
-    { name: "Proiecte", href: "/projects" },
-    { name: "Clienți", href: "/clients" },
-    { name: "Contact", href: "/contact" },
+    { name: t("nav.projects"), href: "/projects" },
+    { name: t("nav.clients"), href: "/clients" },
+    { name: t("nav.contact"), href: "/contact" },
   ]
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -127,9 +129,34 @@ export function Navbar() {
           ))}
         </nav>
 
-        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <Menu className="w-6 h-6 text-white" />
-        </button>
+        <div className="flex items-center gap-4">
+          <motion.div
+            className="flex items-center bg-black/20 backdrop-blur-sm rounded-full p-1 border border-white/20"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button
+              onClick={() => setLanguage("ro")}
+              className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                language === "ro" ? "bg-[#FF0000] text-white shadow-lg" : "text-white/70 hover:text-white"
+              }`}
+            >
+              RO
+            </button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                language === "en" ? "bg-[#FF0000] text-white shadow-lg" : "text-white/70 hover:text-white"
+              }`}
+            >
+              EN
+            </button>
+          </motion.div>
+
+          <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Menu className="w-6 h-6 text-white" />
+          </button>
+        </div>
       </div>
 
       {isMobileMenuOpen && (
